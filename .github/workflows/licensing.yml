@@ -18,16 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - uses: SymbiFlow/actions/checks@main
       with:
-        third_party: |
-          ./third_party/edalize
-          ./third_party/embeddedsw
-          ./third_party/fasm
-          ./third_party/picosoc
-          ./third_party/prjuray-tools
-          ./third_party/python-sdf-timing
         exclude_license: |
           ./third_party/VexRiscv/VexRiscv_Full.v
           ./third_party/VexRiscv/VexRiscv_Linux.v
